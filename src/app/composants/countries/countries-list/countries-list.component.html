@@ -1,17 +1,21 @@
 
-<div class="row">
-  <div *ngFor="let item of country | async | paginate: { itemsPerPage: itemsNumber, currentPage: p }"
-       class="col-xs-2 col-md-3 col-lg-2">
+<div class="row country-list-wrapper" >
+  <div *ngFor="let item of country | async | paginate: { itemsPerPage: itemsNumber.value, currentPage: p }"
+       class="col-xs-2 col-sm-3 col-md-3 col-lg-2">
     <app-country [routerLink]="['/country/' + item.alpha3Code]" [country]="item"></app-country>
   </div>
 </div>
 <div class="row">
   <div class="col-2">
-<select class="custom-select" [(ngModel)]="itemsNumber">
+<select class="custom-select"  [formControl]="itemsNumber">
   <option *ngFor="let c of numberPage" [ngValue]="c.page">{{c.page}}</option>
 </select>
   </div>
   <div class="col-10">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls
+    (pageChange)="p = $event"
+    directionLinks="true"
+
+  ></pagination-controls>
   </div>
 </div>

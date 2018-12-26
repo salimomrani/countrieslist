@@ -26,11 +26,12 @@ export class CountrySummary {
   alpha3Code: string;
   name: string;
   flag: string;
+  region: string;
 
-
-  constructor(alpha3Code: string, name: string, flag: string) {
+  constructor(alpha3Code: string, name: string, flag: string, region: string) {
     this.alpha3Code = alpha3Code;
     this.name = name;
     this.flag = flag;
+    this.region = region;
   }
 }

@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {CountryDetail, CountrySummary} from '../model/country';
-import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class CountryService {
   getAllCountry() {
     return this.http.get('https://restcountries.eu/rest/v2/all').pipe(
       map((countryDetails: CountryDetail[]) => {
-        return countryDetails.map(data => new CountrySummary(data.alpha3Code, data.name, data.flag)
+        return countryDetails.map(data => new CountrySummary(data.alpha3Code, data.name, data.flag, data.region)
         );
       })
     );

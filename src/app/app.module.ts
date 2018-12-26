@@ -9,8 +9,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {CountriesListComponent} from './composants/countries/countries-list/countries-list.component';
 import {CountryComponent} from './composants/countries/countries-list/country/country.component';
 import {CountryDetailComponent} from './composants/country-detail/country-detail.component';
-import {FormsModule} from '@angular/forms';
-import { CountryFilterComponent } from './composants/country-filter/country-filter.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {CountryFilterComponent} from './composants/country-filter/country-filter.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import { CountryFilterComponent } from './composants/country-filter/country-filt
     CountriesListComponent,
     CountryComponent,
     CountryDetailComponent,
-    CountryFilterComponent
+    CountryFilterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

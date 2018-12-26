@@ -1,5 +1,5 @@
 <h1>Available Country</h1>
 
-<app-country-filter ></app-country-filter>
-<app-country-list [country]="listCountry" ></app-country-list>
+<app-country-filter (filterChanged)="onFilterChange($event)"></app-country-filter>
+<app-country-list [country]="listCountryObservable" ></app-country-list>
 

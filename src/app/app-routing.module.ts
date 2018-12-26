@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CountriesComponent} from './composants/countries/countries.component';
-import {CountryDetail} from './model/country';
 import {CountryDetailComponent} from './composants/country-detail/country-detail.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -15,8 +15,12 @@ const routes: Routes = [
     component: CountriesComponent
   },
   {
-    path: 'country/:code',
+    path: 'country/:id',
     component: CountryDetailComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   }
 ];
 

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CountryService} from '../../service/country.service';
 import {CountrySummary} from '../../model/country';
-import {Observable} from 'rxjs';
+import {Observable, Subject, Subscription} from 'rxjs';
+import {Filter} from '../../model/filter';
 
 @Component({
   selector: 'app-countries',
@@ -9,8 +10,10 @@ import {Observable} from 'rxjs';
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent implements OnInit {
-  private listCountry: Observable<CountrySummary[]>;
-
+  private listCountry: Subject<CountrySummary[]>;
+  private listCountryObservable: Observable<CountrySummary[]>;
+  private countryList: CountrySummary[];
+  private test: Subscription;
 
   constructor(private countryService: CountryService) {
   }
@@ -20,6 +23,27 @@ export class CountriesComponent implements OnInit {
   }
 
   private getAllCountry() {
-    this.listCountry = this.countryService.getAllCountry();
+    this.countryService.getAllCountry().subscribe((countries) => {
+      this.countryList = countries;
+      this.listCountry.next(countries);
+    });
+    this.listCountry = new Subject();
+    this.listCountryObservable = this.listCountry.asObservable();
+  }
+
+  onFilterChange(filterData: Filter) {
+    const newCountryList = this.countryList.filter(country => {
+      switch (filterData.category) {
+        case 'id':
+          return new RegExp(filterData.query.toUpperCase()).test(country.alpha3Code);
+        case 'name':
+          return new RegExp(filterData.query.toLocaleLowerCase()).test(country.name.toLocaleLowerCase());
+        case 'region':
+          return new RegExp(filterData.query.toLocaleLowerCase()).test(country.region.toLocaleLowerCase());
+        default:
+          return false;
+      }
+    });
+    this.listCountry.next(newCountryList);
   }
 }
