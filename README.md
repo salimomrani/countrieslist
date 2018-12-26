@@ -1,4 +1,4 @@
-# CountryList
+# Countries List
 
 this application display countries in a grid system with `pagination` and `filter options`.
 The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
