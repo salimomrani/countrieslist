@@ -11,6 +11,9 @@ export class CountryService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * get all countries from restcountries api
+   */
   getAllCountry() {
     return this.http.get('https://restcountries.eu/rest/v2/all').pipe(
       map((countryDetails: CountryDetail[]) => {
@@ -20,6 +23,10 @@ export class CountryService {
     );
   }
 
+  /**
+   * get country by code from restcountries api
+   * @param code
+   */
   getCountry(code: string) {
     return this.http.get(`https://restcountries.eu/rest/v2/alpha/${code}`);
   }
