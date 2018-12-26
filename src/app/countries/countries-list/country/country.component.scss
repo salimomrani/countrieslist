@@ -2,3 +2,13 @@
   width: 20px;
   height: 20px;
 }
+
+.selection{
+  cursor: pointer;
+}
+
+.selection:hover {
+  background-color: #6f8067;
+  color: white;
+}
+
