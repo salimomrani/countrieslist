@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CountryService} from '../../service/country.service';
 import {CountrySummary} from '../../model/country';
-import {Observable, Subject, Subscription} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {Filter} from '../../model/filter';
 
 @Component({
@@ -10,10 +10,9 @@ import {Filter} from '../../model/filter';
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent implements OnInit {
-  private listCountry: Subject<CountrySummary[]>;
-  private listCountryObservable: Observable<CountrySummary[]>;
+  private listCountry: Subject<CountrySummary[]> = new Subject();
+  public listCountryObservable: Observable<CountrySummary[]>;
   private countryList: CountrySummary[];
-  private test: Subscription;
 
   constructor(private countryService: CountryService) {
   }
@@ -27,7 +26,6 @@ export class CountriesComponent implements OnInit {
       this.countryList = countries;
       this.listCountry.next(countries);
     });
-    this.listCountry = new Subject();
     this.listCountryObservable = this.listCountry.asObservable();
   }
 

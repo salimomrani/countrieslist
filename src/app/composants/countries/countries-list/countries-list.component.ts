@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CountryDetail} from '../../../model/country';
+import {CountrySummary} from '../../../model/country';
 import {FormControl} from '@angular/forms';
 
 @Component({
@@ -9,8 +9,7 @@ import {FormControl} from '@angular/forms';
 })
 export class CountriesListComponent implements OnInit {
 
-
-  @Input() country: CountryDetail[];
+  @Input() country: CountrySummary[];
   p = 1;
   itemsNumber: FormControl = new FormControl(10);
   numberPage = [
