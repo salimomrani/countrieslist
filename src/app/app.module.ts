@@ -11,7 +11,7 @@ import {CountryComponent} from './composants/countries/countries-list/country/co
 import {CountryDetailComponent} from './composants/country-detail/country-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CountryFilterComponent} from './composants/country-filter/country-filter.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './composants/not-found/not-found.component';
 
 @NgModule({
   declarations: [
