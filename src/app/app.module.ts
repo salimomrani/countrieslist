@@ -8,13 +8,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {CountriesListComponent} from './countries/countries-list/countries-list.component';
 import {CountryComponent} from './countries/countries-list/country/country.component';
+import { CountryDetailComponent } from './country-detail/country-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CountriesComponent,
     CountriesListComponent,
-    CountryComponent
+    CountryComponent,
+    CountryDetailComponent
   ],
   imports: [
     BrowserModule,
