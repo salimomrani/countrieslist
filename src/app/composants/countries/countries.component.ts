@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CountryService} from '../service/country.service';
-import {CountrySummary} from '../model/country';
+import {CountryService} from '../../service/country.service';
+import {CountrySummary} from '../../model/country';
 import {Observable} from 'rxjs';
 
 @Component({

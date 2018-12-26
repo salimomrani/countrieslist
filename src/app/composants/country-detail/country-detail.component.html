@@ -1,0 +1,27 @@
+<div>
+  <button class="btn btn-success " type="button" [routerLink]="['/country']"> go back</button>
+</div>
+<div *ngIf="country;else loader" class="row">
+  <div class="col-12">
+    <h1>{{country.name}} <img class="flag-detail-country" [src]="country.flag" alt="country flag {{country.name}}"></h1>
+  </div>
+  <div class="col-12 col-md-6">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Capital: {{country.capital}}</li>
+      <li class="list-group-item">Region: {{country.region}}</li>
+      <li class="list-group-item">Population: {{country.population}}</li>
+      <li class="list-group-item">Currency: <span
+        *ngFor="let currency of country.currencies">{{currency.symbol}}</span></li>
+      <li class="list-group-item">Languages: <span
+        *ngFor="let language of country.languages ">{{language.name}}</span></li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #loader>
+  <div class="row">
+    <div class="col-12 text-center">
+      <img src="../../../assets/spinner.gif" alt="spinner ">
+    </div>
+  </div>
+</ng-template>

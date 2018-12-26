@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {CountryDetail, CountrySummary} from '../model/country';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,9 @@ export class CountryService {
         );
       })
     );
+  }
+
+  getCountry(code: string) {
+    return this.http.get(`https://restcountries.eu/rest/v2/alpha/${code}`);
   }
 }

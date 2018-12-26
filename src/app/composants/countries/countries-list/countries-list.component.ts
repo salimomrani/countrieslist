@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CountryDetail} from '../../model/country';
+import {CountryDetail} from '../../../model/country';
 
 @Component({
   selector: 'app-country-list',
@@ -8,13 +8,19 @@ import {CountryDetail} from '../../model/country';
 })
 export class CountriesListComponent implements OnInit {
 
-  p = 1;
+
   @Input() country: CountryDetail[];
+  p = 1;
+  itemsNumber = 10;
+  numberPage = [
+    {page: 10},
+    {page: 50},
+    {page: 100}
+  ];
 
   constructor() {
   }
 
   ngOnInit() {
   }
-
 }

@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {CountriesComponent} from './countries/countries.component';
+import {CountriesComponent} from './composants/countries/countries.component';
 import {CountryDetail} from './model/country';
-import {CountryDetailComponent} from './country-detail/country-detail.component';
+import {CountryDetailComponent} from './composants/country-detail/country-detail.component';
 
 const routes: Routes = [
   {
