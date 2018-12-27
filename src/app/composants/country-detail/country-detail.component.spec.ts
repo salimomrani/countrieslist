@@ -1,16 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CountryDetailComponent } from './country-detail.component';
+import {ModuleExport} from '../../../../test/test.util';
 
 describe('CountryDetailComponent', () => {
   let component: CountryDetailComponent;
   let fixture: ComponentFixture<CountryDetailComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CountryDetailComponent ]
-    })
-    .compileComponents();
+   ModuleExport();
   }));
 
   beforeEach(() => {

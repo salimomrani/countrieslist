@@ -1,16 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CountryFilterComponent } from './country-filter.component';
+import {ModuleExport} from '../../../../test/test.util';
 
 describe('CountryFilterComponent', () => {
   let component: CountryFilterComponent;
   let fixture: ComponentFixture<CountryFilterComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CountryFilterComponent ]
-    })
-    .compileComponents();
+    ModuleExport();
   }));
 
   beforeEach(() => {

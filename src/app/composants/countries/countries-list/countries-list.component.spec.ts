@@ -1,16 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CountriesListComponent } from './countries-list.component';
+import {CountriesListComponent} from './countries-list.component';
+import {ModuleExport} from '../../../../../test/test.util';
 
-describe('CountryListComponent', () => {
+describe('CountriesListComponent', () => {
   let component: CountriesListComponent;
   let fixture: ComponentFixture<CountriesListComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CountriesListComponent ]
-    })
-    .compileComponents();
+    ModuleExport();
   }));
 
   beforeEach(() => {
