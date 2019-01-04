@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
 import {Filter} from '../../model/filter';
 
@@ -17,7 +17,7 @@ export class CountryFilterComponent implements OnInit {
     {type: 'name'},
     {type: 'region'}
   ];
-  private filterForm: FormGroup;
+  filterForm: FormGroup;
 
   constructor() { }
 
@@ -27,14 +27,13 @@ export class CountryFilterComponent implements OnInit {
       debounceTime(300),
     ).subscribe((data: Filter) => {
       this.filterChanged.emit(new Filter(data.query, data.category));
-
     });
   }
 
   private buildForm() {
     return new FormGroup({
       query: new FormControl(''),
-      category: new FormControl(this.category[0].type),
+      category: new FormControl(this.category[0].type, Validators.required),
     });
   }
 }

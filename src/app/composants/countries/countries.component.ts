@@ -12,7 +12,7 @@ import {Filter} from '../../model/filter';
 export class CountriesComponent implements OnInit {
   private listCountry: Subject<CountrySummary[]> = new Subject();
   public listCountryObservable: Observable<CountrySummary[]>;
-  private countryList: CountrySummary[];
+  public countryList: CountrySummary[];
 
   constructor(private countryService: CountryService) {
   }
