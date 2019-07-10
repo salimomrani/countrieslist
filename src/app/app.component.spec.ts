@@ -18,7 +18,7 @@ describe('AppComponent', () => {
     componont = fixture.componentInstance;
   }));
 
-  it('should be created', function () {
+  it('should be created',  function () {
     expect(componont).toBeTruthy();
   });
 
