@@ -37,6 +37,7 @@ describe('CountryFilterComponent', () => {
     expect(component.filterForm.valid).toBeFalsy();
   });
 
+
   it('it should emit value when typing in query input', fakeAsync(() => {
     spyOn(component.filterChanged, 'emit');
     const inputElement = fixture.debugElement.query(By.css('input'));
